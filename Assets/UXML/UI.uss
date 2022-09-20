@@ -1,0 +1,9 @@
+#fps-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    color: white;
+    -unity-font-style: bold;
+    text-shadow: -0.75px 0.75px 0.5px rgb(0, 0, 0);
+}
