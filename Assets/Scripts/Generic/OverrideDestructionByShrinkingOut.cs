@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DestructionOverrideShrinkOut : MonoBehaviour
+public class OverrideDestructionByShrinkingOut : MonoBehaviour
 {
     public float ShrinkTime = 0.5f;
 

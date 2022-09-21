@@ -24,7 +24,7 @@ public class PhoneticObjectChooser : MonoBehaviour
         _choicesRemaining.ExceptWith(_alreadyChosenSet);
     }
 
-    public void CB_Choose()
+    public void CB_ChooseNextPhoneticObject()
     {
         var choicesList = new List<PhoneticObject>(_choicesRemaining);
         var choice = choicesList.PickRandom();

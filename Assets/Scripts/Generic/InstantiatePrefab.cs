@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class PrefabInstantiator : MonoBehaviour
+public class InstantiatePrefab : MonoBehaviour
 {
     public GameObject Prefab;
     public Transform InstantiateLocation;
 
-    public void CB_Execute() =>
+    public void CB_InstantiatePrefab() =>
         Instantiate(Prefab, InstantiateLocation.position, Quaternion.identity);
 
     public void CB_SetPrefab(GameObject newPrefab) =>

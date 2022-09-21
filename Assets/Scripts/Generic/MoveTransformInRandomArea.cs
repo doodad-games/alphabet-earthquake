@@ -6,7 +6,7 @@ public class MoveTransformInRandomArea : MonoBehaviour
     [Tooltip("Assumed to have no rotation applied.")]
     public BoxCollider Area;
 
-    public void CB_Execute() =>
+    public void CB_MoveTransformInRandomArea() =>
         TransformToMove.position = new Vector3(
             Random.Range(Area.bounds.min.x, Area.bounds.max.x),
             Random.Range(Area.bounds.min.y, Area.bounds.max.y),

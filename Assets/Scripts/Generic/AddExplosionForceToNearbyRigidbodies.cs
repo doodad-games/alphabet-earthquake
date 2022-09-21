@@ -1,19 +1,19 @@
 using UnityEngine;
 
-public class ExplosionForceApplier : MonoBehaviour
+public class AddExplosionForceToNearbyRigidbodies : MonoBehaviour
 {
-    [field: SerializeField] public bool ExplodeOnEnable { get; set; }
+    [field: SerializeField] public bool ActivateOnEnable { get; set; }
     [field: SerializeField] public float ExplosionForce { get; set; }
     [field: SerializeField] public float ExplosionRadius { get; set; }
     [field: SerializeField] public float UpwardsModifier { get; set; }
 
     public void OnEnable()
     {
-        if (ExplodeOnEnable)
-            CB_ApplyExplosionForceToAllRigidbodies();
+        if (ActivateOnEnable)
+            CB_AddExplosionForceToNearbyRigidbodies();
     }
 
-    public void CB_ApplyExplosionForceToAllRigidbodies()
+    public void CB_AddExplosionForceToNearbyRigidbodies()
     {
         if (ExplosionRadius == 0)
             return;

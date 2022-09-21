@@ -14,9 +14,15 @@ public class DoCallbacksForLifecycle : MonoBehaviour
     public void OnEnable() =>
         OnEnableCallbacks?.Invoke();
 
-    public void OnDisable() =>
-        OnDisableCallbacks?.Invoke();
+    public void OnDisable()
+    {
+        if (!ApplicationSettings.Quitting)
+            OnDisableCallbacks?.Invoke();
+    }
 
-    public void OnDestroy() =>
-        OnDestroyCallbacks?.Invoke();
+    public void OnDestroy()
+    {
+        if (!ApplicationSettings.Quitting)
+            OnDestroyCallbacks?.Invoke();
+    }
 }

@@ -4,18 +4,18 @@ using UnityEngine.Events;
 
 public class DoCallbacks : MonoBehaviour
 {
-    public bool ExecuteOnEnable;
+    public bool ActivateOnEnable;
     public float Delay;
     public TimeType DelayType; 
     public UnityEvent Callbacks;
 
     public void OnEnable()
     {
-        if (ExecuteOnEnable)
-            CB_Execute();
+        if (ActivateOnEnable)
+            CB_DoCallbacks();
     }
 
-    public void CB_Execute()
+    public void CB_DoCallbacks()
     {
         if (Delay <= 0f)
             Callbacks?.Invoke();

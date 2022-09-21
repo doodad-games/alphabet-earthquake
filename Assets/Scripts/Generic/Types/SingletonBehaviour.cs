@@ -13,9 +13,9 @@ public abstract class SingletonBehaviour<T> : MonoBehaviour
 
 #if UNITY_EDITOR
     static SingletonBehaviour() =>
-        EditorApplication.playModeStateChanged += (@event) =>
+        EditorApplication.playModeStateChanged += (stateChange) =>
         {
-            if (@event == PlayModeStateChange.EnteredEditMode)
+            if (stateChange == PlayModeStateChange.EnteredEditMode)
                 _initialised = false;
         };
 #endif

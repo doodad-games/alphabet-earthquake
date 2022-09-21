@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class UILabelUpdater : MonoBehaviour
+public class UpdateUILabel : MonoBehaviour
 {
     public UIDocument Document;
     public string Name;

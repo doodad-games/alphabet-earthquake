@@ -10,7 +10,7 @@ public class DoCallbacksForIntVariable : MonoBehaviour
 {
     public IntVariable Variable;
     public int Threshold;
-    public bool ExecuteThresholdCallbacksOnChanged;
+    public bool DoThresholdCallbacksOnChanged;
 
     [Space(10)]
     public UnityEventInt ChangedCallback;
@@ -33,7 +33,7 @@ public class DoCallbacksForIntVariable : MonoBehaviour
             Variable.OnValueChanged -= HandleValueChanged;
     }
 
-    public void CB_ExecuteThresholdCallbacks()
+    public void CB_DoThresholdCallbacks()
     {
         var value = Variable.RuntimeValue;
 
@@ -48,7 +48,7 @@ public class DoCallbacksForIntVariable : MonoBehaviour
     {
         ChangedCallback?.Invoke(value);
 
-        if (ExecuteThresholdCallbacksOnChanged)
-            CB_ExecuteThresholdCallbacks();
+        if (DoThresholdCallbacksOnChanged)
+            CB_DoThresholdCallbacks();
     }
 }
