@@ -1,10 +1,12 @@
 {
-    "name": "Generic",
+    "name": "Generic.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:aa968179ac9b19b438046217f82551a3"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
