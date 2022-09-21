@@ -13,8 +13,12 @@ using UnityEngine;
  * You can manually refresh things by disabling and re-enabling the sound library itself.
  */
 
+[DefaultExecutionOrder(ExecOrder)]
 public class SoundLibrary : MonoBehaviour
 {
+    public const int ExecOrder = SoundSingleton.ExecOrder + 1;
+
+
     AudioSource[] _sounds;
 
     public void OnEnable()

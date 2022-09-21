@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [Serializable]
+public class UnityEventFloat : UnityEvent<float> { }
+
+[Serializable]
 public class UnityEventInt : UnityEvent<int> { }
 
 [Serializable]
