@@ -102,6 +102,7 @@ TestResults-*.xml
 /steam_appid.txt
 desktop.ini
 Assets/AddressableAssetsData/link.xml*
+ProjectSettings/Packages/com.unity.probuilder/Settings.json
 
 # Other FMOD stuff (so this same gitignore can be copied to FMOD projects 🤷)
 .cache

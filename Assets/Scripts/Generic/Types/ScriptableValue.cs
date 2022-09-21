@@ -7,16 +7,15 @@ using UnityEditor;
 
 public class ScriptableValue<T> : ScriptableObject, ISerializationCallbackReceiver
 {
-#if UNITY_EDITOR
-    static bool _hookedIntoModeChange;
-#endif
-
-
     public event Action<T> OnValueChanged;
 
     public T InitialValue;
 
     T _runtimeValue;
+
+#if UNITY_EDITOR
+    bool _hookedIntoModeChange;
+#endif
 
     public T RuntimeValue
     {
