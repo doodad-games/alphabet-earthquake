@@ -12,10 +12,10 @@ public class DoCallbacks : MonoBehaviour
     public void OnEnable()
     {
         if (ExecuteOnEnable)
-            Execute();
+            CB_Execute();
     }
 
-    public void Execute()
+    public void CB_Execute()
     {
         if (Delay <= 0f)
             Callbacks?.Invoke();

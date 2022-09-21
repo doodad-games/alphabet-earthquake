@@ -1,11 +1,24 @@
 using System;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public abstract class SingletonBehaviour<T> : MonoBehaviour
     where T : SingletonBehaviour<T>
 {
     static T _i;
     static bool _initialised;
+
+#if UNITY_EDITOR
+    static SingletonBehaviour() =>
+        EditorApplication.playModeStateChanged += (@event) =>
+        {
+            if (@event == PlayModeStateChange.EnteredEditMode)
+                _initialised = false;
+        };
+#endif
 
     /// <summary>This can be null during application teardown.</summary>
     public static T I
