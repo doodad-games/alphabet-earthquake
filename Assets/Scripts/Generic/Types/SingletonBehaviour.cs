@@ -5,17 +5,21 @@ public abstract class SingletonBehaviour<T> : MonoBehaviour
     where T : SingletonBehaviour<T>
 {
     static T _i;
+    static bool _initialised;
+
+    /// <summary>This can be null during application teardown.</summary>
     public static T I
     {
         get
         {
-            if (_i == null)
+            if (!_initialised && _i == null)
             {
 #if UNITY_EDITOR
                 if (!Application.isPlaying)
                     throw new InvalidOperationException();
 #endif
 
+                _initialised = true;
                 CreateInstance();
             }
 
@@ -28,7 +32,8 @@ public abstract class SingletonBehaviour<T> : MonoBehaviour
         var gameObject = new GameObject(typeof(T).Name);
         gameObject.hideFlags = HideFlags.HideInHierarchy;
         DontDestroyOnLoad(gameObject);
-        gameObject.AddComponent<T>();
+        gameObject.AddComponent<T>()
+            .SingletonInit();
     }
 
     public virtual void OnEnable()
@@ -42,4 +47,6 @@ public abstract class SingletonBehaviour<T> : MonoBehaviour
 
         _i = (T)this;
     }
+
+    protected virtual void SingletonInit() { }
 }
