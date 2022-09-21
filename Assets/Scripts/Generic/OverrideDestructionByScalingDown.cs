@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class OverrideDestructionByShrinkingOut : MonoBehaviour
+public class OverrideDestructionByScalingDown : MonoBehaviour
 {
-    public float ShrinkTime = 0.5f;
+    public float Duration = 0.5f;
 
     public void CB_DestroyWithOverride() =>
         new Async(this)
             .Lerp(
-                1, 0, ShrinkTime,
+                1, 0, Duration,
                 step => transform.localScale = Vector3.one * step
             )
             .Then(
