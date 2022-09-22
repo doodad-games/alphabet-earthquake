@@ -14,7 +14,7 @@ public class ScriptableValue<T> : ScriptableObject, ISerializationCallbackReceiv
     T _runtimeValue;
 
 #if UNITY_EDITOR
-    bool _hookedIntoModeChange;
+    [NonSerialized] bool _hookedIntoModeChange;
 #endif
 
     public T RuntimeValue
