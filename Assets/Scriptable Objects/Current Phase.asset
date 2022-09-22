@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e4c498a8c762c459154a7666942e3b, type: 3}
   m_Name: Current Phase
   m_EditorClassIdentifier: 
-  InitialValue: 2
+  InitialValue: 1
