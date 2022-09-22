@@ -13,8 +13,9 @@ using UnityEngine;
 public static class SoundAutoHookup
 {
     const string SourcePath = "Assets/Audio/Sounds/Auto Hookup";
-    const string DestinationPrefabPath = "Assets/Prefabs/Resources/DefaultSounds.prefab";
+    const string DestinationPrefabPath = "Assets/Prefabs/Resources/Default Sounds.prefab";
     const string DestinationGameObjectName = "Auto Hookup";
+    const string AudioSourcePrefabResourceName = "Auto Hookup Audio Source Prefab";
 
     [MenuItem("Game/Run Sound Auto Hookup")]
     public static void GoGoGo()
@@ -48,12 +49,31 @@ public static class SoundAutoHookup
                 var clipName = Path.GetFileNameWithoutExtension(path);
                 var clip = AssetDatabase.LoadAssetAtPath<AudioClip>(path);
 
-                var gameObject = new GameObject(clipName);
-                gameObject.transform.SetParent(tfm);
-                var audioSource = gameObject.AddComponent<AudioSource>();
+                // var audioSource = CreatePlainAudioSource(clipName);
+                var audioSource = LoadFromResource(clipName);
+
                 audioSource.clip = clip;
-                audioSource.playOnAwake = false;
             }
         }
+
+        AudioSource LoadFromResource(string clipName)
+        {
+            var prefab = Resources.Load<GameObject>(AudioSourcePrefabResourceName);
+            var gameObject = Object.Instantiate(prefab, tfm);
+            gameObject.name = clipName;
+            return gameObject.GetComponent<AudioSource>();
+        }
+
+        /*
+        AudioSource CreatePlainAudioSource(string clipName)
+        {
+            var gameObject = new GameObject(clipName);
+            gameObject.transform.SetParent(tfm);
+            var audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+
+            return audioSource;
+        }
+        */
     }
 }

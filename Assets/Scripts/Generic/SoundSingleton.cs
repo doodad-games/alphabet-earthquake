@@ -29,7 +29,7 @@ public class SoundSingleton : SingletonBehaviour<SoundSingleton>
     // Early such to beat regular components that may try to play sounds on hot reload
     // (because we need sounds to re-register before something tries to play them).
     public const int ExecOrder = -100;
-    const string DefaultPrefabName = "DefaultSounds";
+    const string DefaultPrefabName = "Default Sounds";
 
     /**
      * ## Example Matches
