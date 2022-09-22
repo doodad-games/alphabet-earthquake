@@ -9,7 +9,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Phonetic Object", menuName = "Game/Phonetic Object")]
 public class PhoneticObject : ScriptableObject
 {
-    const string SoundNameTemplate = "Object_{0}";
+    const string SoundNameTemplate = "Phonetic Object_{0}";
 
 
     /// <summary>e.g. "P" for "Pilot", "Sh" for "shell".</summary>
